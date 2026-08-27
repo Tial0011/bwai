@@ -1,0 +1,63 @@
+/* =================================================================
+   BUILD MVPs WITH AI — RESPONSIVE FOUNDATION
+   Deliverable 1: Foundation & Design System
+
+   This file establishes the breakpoint architecture only.
+   No responsive section layouts exist yet — those belong to
+   the deliverables that build each section.
+
+   Breakpoint philosophy: mobile-first. Base styles in style.css
+   target small screens; each breakpoint below progressively
+   adapts layout tokens as the viewport grows.
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Breakpoint reference (for future deliverables to build against):
+
+   320px  — small mobile floor
+   375px  — standard mobile
+   768px  — tablet / small laptop
+   1024px — laptop / small desktop
+   1440px — large desktop and up
+   ----------------------------------------------------------------- */
+
+/* 375px — standard mobile */
+@media (min-width: 375px) {
+  :root {
+    --container-padding: var(--space-md);
+  }
+}
+
+/* 768px — tablet */
+@media (min-width: 768px) {
+  :root {
+    --container-padding: var(--space-lg);
+    --section-spacing: var(--space-3xl);
+  }
+}
+
+/* 1024px — laptop / small desktop */
+@media (min-width: 1024px) {
+  :root {
+    --container-padding: var(--space-xl);
+  }
+}
+
+/* 1440px — large desktop */
+@media (min-width: 1440px) {
+  :root {
+    --container-padding: var(--space-2xl);
+    --section-spacing: var(--space-4xl);
+  }
+}
+
+/* Respect reduced-motion preference — honored from the foundation
+   up, even though no animations exist yet. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

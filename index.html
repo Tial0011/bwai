@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build MVPs with AI</title>
+  <meta name="description" content="Learn how to use AI to build and test your own MVP — no technical team required.">
+  <meta name="theme-color" content="#0F1E3D">
+
+  <!-- Favicon (placeholder until final favicon set is provided) -->
+  <link rel="icon" type="image/png" href="favicon/favicon.png">
+
+  <!-- Fonts: Space Grotesk (display), Inter (body), IBM Plex Mono (utility/data) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/nav.css">
+</head>
+<body>
+
+  <!--
+    NAVIGATION — Deliverable 2
+    Sticky header with desktop nav and mobile hamburger menu.
+    Nav links point to section ids that will exist once those
+    sections are built in later deliverables.
+  -->
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo" aria-label="BWAI — Build MVPs with AI, back to top">
+        <img class="nav-logo__img" src="assets/logo/logo.jpeg" alt="" width="36" height="36">
+        <span>BWAI</span>
+      </a>
+
+      <button
+        type="button"
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="nav-links"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+
+      <nav class="nav-links" id="nav-links" aria-label="Primary">
+        <ul class="nav-links__list">
+          <li><a href="#" class="nav-link is-active">Home</a></li>
+          <li><a href="#what-we-teach" class="nav-link">What We Teach</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#cohort" class="nav-link">Cohort</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li class="nav-links__cta"><a href="#cohort" class="btn-nav-cta">Join the Next Cohort</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!--
+    FOUNDATION SHELL — Deliverable 1
+    No hero or other website sections are built yet.
+    This structure exists only to prove the foundation
+    (HTML, CSS, JS, fonts, asset paths) loads correctly.
+  -->
+
+  <main id="main-content" data-stage="foundation">
+
+    <!-- Future deliverables will populate this region with:
+         hero, problem, what-we-teach, mvp-journey, why-ai,
+         who-its-for, about, cohort, faq, final-cta, footer -->
+
+    <section class="foundation-check" aria-label="Foundation status">
+      <img class="foundation-check__logo" src="assets/logo/logo.jpeg" alt="BWAI — Built With AI logo" width="96" height="96">
+      <p class="foundation-check__label">Deliverable 1 — Foundation &amp; Design System</p>
+    </section>
+
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

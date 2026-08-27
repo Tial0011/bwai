@@ -1,0 +1,212 @@
+/* =================================================================
+   BUILD MVPs WITH AI — NAVIGATION
+   Deliverable 2: Navigation
+
+   Sticky site header with desktop nav and a mobile hamburger menu.
+   Uses only existing design tokens from style.css. No new colors,
+   fonts, or spacing values are introduced here.
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Header shell
+   ----------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: 72px;
+  position: relative;
+}
+
+/* -----------------------------------------------------------------
+   Logo
+   ----------------------------------------------------------------- */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2xs);
+  text-decoration: none;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-h4);
+  border-radius: var(--radius-sm);
+}
+
+.nav-logo__img {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  object-fit: contain;
+  display: block;
+}
+
+/* -----------------------------------------------------------------
+   Hamburger toggle (mobile)
+   ----------------------------------------------------------------- */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.nav-toggle:hover {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-surface-alt);
+}
+
+.nav-toggle__bar {
+  width: 20px;
+  height: 2px;
+  background-color: var(--color-text);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* -----------------------------------------------------------------
+   Nav links panel (mobile: dropdown, hidden until opened)
+   ----------------------------------------------------------------- */
+.nav-links {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-links.is-open {
+  display: block;
+}
+
+.nav-links__list {
+  list-style: none;
+  margin: 0;
+  padding: var(--space-sm) var(--container-padding) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+}
+
+.nav-link {
+  display: block;
+  padding: var(--space-xs) var(--space-2xs);
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+}
+
+.nav-link:active {
+  color: var(--color-primary-hover);
+}
+
+.nav-link.is-active {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-semibold);
+}
+
+.nav-links__cta {
+  margin-top: var(--space-2xs);
+}
+
+.btn-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-family: var(--font-body);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-body-sm);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-nav-cta:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.btn-nav-cta:active {
+  transform: scale(0.98);
+}
+
+/* -----------------------------------------------------------------
+   Desktop layout — 1024px and up (matches responsive.css scale)
+   ----------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: block;
+    position: static;
+    background: transparent;
+    border-bottom: none;
+    box-shadow: none;
+  }
+
+  .nav-links__list {
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    gap: var(--space-lg);
+  }
+
+  .nav-link {
+    padding: var(--space-2xs) var(--space-2xs);
+  }
+
+  .nav-links__cta {
+    margin-top: 0;
+    margin-left: var(--space-sm);
+  }
+
+  .btn-nav-cta {
+    width: auto;
+    padding: var(--space-2xs) var(--space-lg);
+  }
+}
