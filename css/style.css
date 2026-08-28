@@ -117,6 +117,8 @@
   --z-overlay: 300;
   --z-modal: 400;
   --z-toast: 500;
+
+  color-scheme: light;
 }
 
 /* -----------------------------------------------------------------
@@ -143,6 +145,29 @@
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.5);
+
+  color-scheme: dark;
+}
+
+/* -----------------------------------------------------------------
+   2b. THEME TRANSITION (Deliverable 14)
+   The `.theme-transitioning` class is added to <html> by app.js for
+   a brief window around a theme switch, so color/background/border
+   changes animate smoothly across the whole page instead of every
+   component needing its own transition rule. It's removed again
+   once the transition finishes so it never interferes with other
+   transitions (hover states, the mobile menu, the modal, etc.).
+   ----------------------------------------------------------------- */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning *::before,
+.theme-transitioning *::after {
+  transition: background-color var(--transition-base),
+              color var(--transition-base),
+              border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              fill var(--transition-base),
+              stroke var(--transition-base) !important;
 }
 
 /* -----------------------------------------------------------------

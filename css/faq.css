@@ -1,0 +1,156 @@
+/* =================================================================
+   BUILD MVPs WITH AI — FAQ SECTION
+   Deliverable 11: FAQ
+
+   Accessible accordion built with existing design tokens from
+   style.css only. No new colors, fonts, or complex animations —
+   the panel uses a simple grid-rows transition consistent with the
+   subtle opacity/transform transitions used elsewhere (e.g. the
+   Cohort modal).
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Section shell
+   ----------------------------------------------------------------- */
+.faq {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+}
+
+.faq__container {
+  padding-block: var(--space-2xl);
+}
+
+.faq__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  max-width: 40rem;
+  margin-inline: auto;
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.faq__eyebrow {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+}
+
+.faq__headline {
+  color: var(--color-primary);
+}
+
+/* -----------------------------------------------------------------
+   Accordion list
+   ----------------------------------------------------------------- */
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  max-width: 44rem;
+  margin-inline: auto;
+}
+
+.faq__item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.faq__item.is-open {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-sm);
+}
+
+.faq__question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: var(--space-md) var(--space-md);
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: var(--text-body-lg);
+  font-weight: var(--font-weight-semibold);
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq__question:hover {
+  color: var(--color-accent);
+}
+
+.faq__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-base);
+}
+
+.faq__icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.faq__item.is-open .faq__icon {
+  transform: rotate(180deg);
+}
+
+.faq__answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--transition-base);
+}
+
+.faq__item.is-open .faq__answer {
+  grid-template-rows: 1fr;
+}
+
+.faq__answer-inner {
+  overflow: hidden;
+}
+
+.faq__answer-text {
+  margin: 0;
+  padding: 0 var(--space-md) var(--space-md);
+  color: var(--color-text-muted);
+}
+
+/* Respect reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .faq__answer,
+  .faq__icon,
+  .faq__item {
+    transition: none;
+  }
+}
+
+/* -----------------------------------------------------------------
+   Tablet — 768px and up
+   ----------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .faq__container {
+    padding-block: var(--space-3xl);
+  }
+
+  .faq__question {
+    padding: var(--space-lg) var(--space-lg);
+  }
+
+  .faq__answer-text {
+    padding: 0 var(--space-lg) var(--space-lg);
+  }
+}

@@ -1,0 +1,204 @@
+/* =================================================================
+   BUILD MVPs WITH AI — WHY AI SECTION
+   Deliverable 7: Why AI
+
+   Narrative section explaining why AI is expanding who gets to
+   build software, plus a simple "before AI / with AI" access
+   visual. Uses only existing design tokens from style.css. No new
+   colors, fonts, or complex animations are introduced here.
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Section shell
+   ----------------------------------------------------------------- */
+.why-ai {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.why-ai__container {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xl);
+}
+
+/* -----------------------------------------------------------------
+   Copy column
+   ----------------------------------------------------------------- */
+.why-ai__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-md);
+  max-width: 42rem;
+}
+
+.why-ai__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3xs) var(--space-sm);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.why-ai__headline {
+  color: var(--color-primary);
+}
+
+.why-ai__text {
+  color: var(--color-text-muted);
+}
+
+/* -----------------------------------------------------------------
+   Visual column — Before AI / With AI access panel
+   ----------------------------------------------------------------- */
+.why-ai__visual {
+  width: 100%;
+}
+
+.access-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-md);
+  padding: var(--space-lg);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+}
+
+.access-panel__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.access-panel__row--after {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.access-panel__row-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.access-panel__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background-color: var(--color-surface-alt);
+  color: var(--color-text-muted);
+}
+
+.access-panel__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.access-panel__icon--after {
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+}
+
+.access-panel__label {
+  color: var(--color-text-muted);
+}
+
+.access-panel__row--after .access-panel__label {
+  color: var(--color-accent);
+}
+
+.access-panel__bar {
+  display: block;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-alt);
+}
+
+.access-panel__bar--before {
+  width: 30%;
+}
+
+.access-panel__bar--after {
+  width: 100%;
+  background-color: var(--color-accent);
+}
+
+.access-panel__meta {
+  color: var(--color-text-muted);
+}
+
+.access-panel__connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 32px;
+  height: 32px;
+  color: var(--color-border-strong);
+}
+
+.access-panel__connector svg {
+  width: 20px;
+  height: 20px;
+  transform: rotate(90deg);
+}
+
+/* -----------------------------------------------------------------
+   Tablet — 768px and up
+   ----------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .why-ai__container {
+    padding-block: var(--space-3xl);
+  }
+
+  .access-panel {
+    padding: var(--space-xl);
+  }
+}
+
+/* -----------------------------------------------------------------
+   Desktop — 1024px and up
+   ----------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .why-ai__container {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-2xl);
+  }
+
+  .why-ai__copy {
+    flex: 1 1 50%;
+  }
+
+  .why-ai__visual {
+    flex: 1 1 50%;
+  }
+
+  .access-panel__connector svg {
+    transform: rotate(90deg);
+  }
+}
+
+/* -----------------------------------------------------------------
+   Large desktop — 1440px and up
+   ----------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .why-ai__headline {
+    max-width: 40rem;
+  }
+}

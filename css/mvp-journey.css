@@ -1,0 +1,217 @@
+/* =================================================================
+   BUILD MVPs WITH AI — FROM IDEA TO MVP SECTION
+   Deliverable 6: From Idea to MVP
+
+   Headline plus a connected 6-step journey (Idea -> Plan -> Build ->
+   Test -> Learn -> Improve). Uses only existing design tokens from
+   style.css. No new colors, fonts, or complex animations are
+   introduced here.
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Section shell
+   ----------------------------------------------------------------- */
+.mvp-journey {
+  background-color: var(--color-bg-alt);
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.mvp-journey__container {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* -----------------------------------------------------------------
+   Heading
+   ----------------------------------------------------------------- */
+.mvp-journey__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  max-width: 42rem;
+}
+
+.mvp-journey__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3xs) var(--space-sm);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.mvp-journey__headline {
+  color: var(--color-primary);
+}
+
+/* -----------------------------------------------------------------
+   Journey track — mobile: vertical timeline
+   ----------------------------------------------------------------- */
+.mvp-journey__track {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.journey-step {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+/* Connecting line between markers (mobile/tablet vertical layout) */
+.journey-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 56px;
+  bottom: calc(-1 * var(--space-lg));
+  left: 27px;
+  width: 2px;
+  background-color: var(--color-border-strong);
+  z-index: 0;
+}
+
+.journey-step__marker {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.journey-step__marker svg {
+  width: 24px;
+  height: 24px;
+}
+
+.journey-step--final .journey-step__marker {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+  box-shadow: var(--shadow-md);
+}
+
+.journey-step__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3xs);
+  min-width: 0;
+  padding-top: var(--space-3xs);
+}
+
+.journey-step__index {
+  color: var(--color-accent);
+  font-weight: var(--font-weight-medium);
+}
+
+.journey-step--final .journey-step__index {
+  color: var(--color-text);
+}
+
+.journey-step__title {
+  color: var(--color-text);
+}
+
+.journey-step__text {
+  color: var(--color-text-muted);
+}
+
+/* -----------------------------------------------------------------
+   Tablet — 768px and up
+   Two-column grid; the vertical connector line is dropped since
+   markers no longer sit in a single visual column.
+   ----------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .mvp-journey__container {
+    padding-block: var(--space-3xl);
+  }
+
+  .mvp-journey__track {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl) var(--space-lg);
+  }
+
+  .journey-step:not(:last-child)::after {
+    content: none;
+  }
+
+  .journey-step {
+    padding: var(--space-md);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* -----------------------------------------------------------------
+   Desktop — 1024px and up
+   Single connected row: markers sit on a shared horizontal line
+   with a chevron between each step to reinforce the journey.
+   ----------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .mvp-journey__track {
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-sm);
+    align-items: start;
+  }
+
+  .journey-step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  .journey-step__body {
+    align-items: center;
+    padding-top: 0;
+  }
+
+  /* Shared connecting line running behind every marker */
+  .mvp-journey__track::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: calc((100% / 12));
+    right: calc((100% / 12));
+    height: 2px;
+    background-color: var(--color-border-strong);
+    z-index: 0;
+  }
+
+  /* Chevron between consecutive steps */
+  .journey-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: calc(-1 * var(--space-sm) - 5px);
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid var(--color-border-strong);
+    border-right: 2px solid var(--color-border-strong);
+    background: none;
+    transform: rotate(45deg);
+    bottom: auto;
+    left: auto;
+  }
+}

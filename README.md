@@ -28,11 +28,13 @@ No frameworks (React, Next.js, Vue, Angular) or CSS libraries
 
 # Current Stage
 
-**Deliverable 2 — Navigation** ✅ Complete
+**Deliverable 17 — SEO** ✅ Complete
 
-The sticky site navigation (desktop + mobile hamburger menu) has been
-built on top of the Deliverable 1 foundation. No other website sections
-(hero, etc.) have been built yet.
+The closing CTA section (deep navy, "Your idea deserves a first
+version.") has been added after the FAQ. Its "Join the Next Cohort"
+button reuses the Cohort section's "Coming Soon" modal via the shared
+`.js-cohort-trigger` hook in `js/app.js` — no duplicate modal or
+handler was introduced.
 
 # Folder Structure
 
@@ -80,11 +82,20 @@ Typefaces: **Space Grotesk** (display/headings), **Inter** (body),
 **IBM Plex Mono** (captions/data — a nod to the platform's coding
 and AI focus).
 
+# SEO
+
+SEO setup is included in Deliverable 17:
+- Page title and meta description
+- Canonical URL placeholder
+- Open Graph and Twitter/X metadata
+- JSON-LD structured data
+- Favicon set
+- `robots.txt`
+- `sitemap.xml`
+- Google Search Console setup guide
+
+**Important:** replace `https://your-domain.example/` with the real production domain before launch.
+
 # Future Development
 
-Later deliverables will add: the navbar, hero, and remaining website
-sections (problem, what we teach, MVP journey, why AI, who it's for,
-about, cohort, FAQ, final CTA, footer); interactive functionality
-(theme toggle, mobile navigation, scroll animations, smooth scrolling);
-accessibility polish; SEO setup; Firebase scaffolding; and a final,
-complete README.
+Remaining work: Firebase scaffolding, final QA, accessibility polish, and the complete production README/package.

@@ -1,0 +1,123 @@
+/* =================================================================
+   BUILD MVPs WITH AI — ABOUT SECTION
+   Deliverable 9: About
+
+   Editorial/narrative section: a statement headline followed by a
+   two-column magazine-style layout — a pulled statement alongside
+   the supporting body copy. Uses only existing design tokens from
+   style.css. No new colors, fonts, or complex animations are
+   introduced here.
+   ================================================================= */
+
+/* -----------------------------------------------------------------
+   Section shell
+   ----------------------------------------------------------------- */
+.about {
+  background-color: var(--color-bg);
+  border-top: 1px solid var(--color-border);
+  overflow: hidden;
+}
+
+.about__container {
+  padding-block: var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* -----------------------------------------------------------------
+   Heading
+   ----------------------------------------------------------------- */
+.about__header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  max-width: 46rem;
+}
+
+.about__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-3xs) var(--space-sm);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  border-radius: var(--radius-full);
+}
+
+.about__headline {
+  color: var(--color-primary);
+}
+
+/* -----------------------------------------------------------------
+   Editorial body — pulled statement + supporting copy
+   ----------------------------------------------------------------- */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.about__statement {
+  margin: 0;
+  padding-left: var(--space-md);
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-primary);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--text-h3);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+}
+
+.about__copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  max-width: 40rem;
+}
+
+.about__text {
+  color: var(--color-text-muted);
+}
+
+/* -----------------------------------------------------------------
+   Tablet — 768px and up
+   ----------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .about__container {
+    padding-block: var(--space-3xl);
+  }
+
+  .about__grid {
+    padding-top: var(--space-lg);
+  }
+}
+
+/* -----------------------------------------------------------------
+   Desktop — 1024px and up
+   ----------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .about__grid {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: var(--space-2xl);
+    align-items: start;
+  }
+
+  .about__statement {
+    position: sticky;
+    top: var(--space-2xl);
+    font-size: var(--text-h3);
+  }
+}
+
+/* -----------------------------------------------------------------
+   Large desktop — 1440px and up
+   ----------------------------------------------------------------- */
+@media (min-width: 1440px) {
+  .about__headline {
+    max-width: 40rem;
+  }
+}
