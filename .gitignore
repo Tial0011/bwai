@@ -1,0 +1,8 @@
+# Local/private Firebase configuration
+js/firebase-config.js
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

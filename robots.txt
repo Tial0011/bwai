@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Replace the placeholder domain with the real production domain before launch.
-Sitemap: https://your-domain.example/sitemap.xml
+Sitemap: https://bwai0.netlify.app/sitemap.xml

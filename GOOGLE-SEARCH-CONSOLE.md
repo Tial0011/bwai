@@ -7,7 +7,7 @@
 3. Use the **URL-prefix** property type.
 4. Enter the final production website URL.
 
-> Before launch, replace `https://your-domain.example/` in the SEO tags, `robots.txt`, and `sitemap.xml` with the real website domain.
+> Before launch, replace `https://bwai0.netlify.app/` in the SEO tags, `robots.txt`, and `sitemap.xml` with the real website domain.
 
 ## 2. Verify ownership
 
@@ -38,6 +38,6 @@ Indexing is not guaranteed immediately. Google decides when and whether a page i
 
 The project currently uses:
 
-`https://your-domain.example/`
+`https://bwai0.netlify.app/`
 
 This is intentionally a placeholder because the final production domain has not been provided yet.

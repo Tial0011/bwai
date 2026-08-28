@@ -1,101 +1,163 @@
-# Project Overview
+# BWAI — Build MVPs with AI
 
-This is the official website for an educational platform that teaches
-people how to use AI to build Minimum Viable Products (MVPs). The
-platform is not an agency — it teaches people to build MVPs themselves,
-starting with web development.
+Production package for **https://bwai0.netlify.app/**.
 
-# Tagline
+## What BWAI teaches
 
-Build MVPs with AI.
+BWAI is a beginner-friendly practical learning platform. The goal is not to overwhelm learners with advanced software engineering. We start with the fundamentals, then show learners how AI can help them build.
 
-# Vision
+### Core curriculum
 
-To empower anyone with a great idea to use AI to build and test an MVP
-before needing a technical team, making it easier to solve problems and
-build businesses.
+1. **HTML Basics** — webpage structure, semantic HTML, links, images, forms.
+2. **CSS Basics** — selectors, spacing, typography, layout, Flexbox, responsive design.
+3. **JavaScript Basics** — variables, functions, events, DOM manipulation, and simple interactivity.
+4. **GitHub Basics** — repositories, commits, pushing code, and project organization.
+5. **Netlify Deployment** — publishing a website and understanding the basic deployment workflow.
+6. **Firebase Basics** — introduction to connecting a web app to authentication and a database.
+7. **Build With AI** — using AI to plan, write, explain, debug, improve, and iterate on code.
 
-# Technology
+The learning philosophy is: **understand the basics → use AI as a building partner → build real projects.**
+
+## Stack
 
 - HTML5
 - CSS3
 - Vanilla JavaScript
-- Firebase — future
-- Netlify — deployment
+- GitHub
+- Netlify
+- Firebase (future cohort/project integration)
+- AI coding assistants
 
-No frameworks (React, Next.js, Vue, Angular) or CSS libraries
-(Tailwind, Bootstrap) are used.
+No framework or CSS library is required for the core site.
 
-# Current Stage
+## Production deployment
 
-**Deliverable 17 — SEO** ✅ Complete
+This is a static site with no build step.
 
-The closing CTA section (deep navy, "Your idea deserves a first
-version.") has been added after the FAQ. Its "Join the Next Cohort"
-button reuses the Cohort section's "Coming Soon" modal via the shared
-`.js-cohort-trigger` hook in `js/app.js` — no duplicate modal or
-handler was introduced.
+### Netlify
 
-# Folder Structure
+The production site is configured for:
 
-```
-/
-├── index.html            Base HTML shell (no sections yet)
+`https://bwai0.netlify.app/`
+
+The deploy/publish directory is:
+
+`buildmvps/`
+
+If deploying through Netlify's Git integration, point the publish directory to `buildmvps` and leave the build command empty.
+
+## Project structure
+
+```text
+buildmvps/
+├── index.html
+├── netlify.toml
+├── robots.txt
+├── sitemap.xml
+├── .gitignore
+├── README.md
+├── GOOGLE-SEARCH-CONSOLE.md
 ├── css/
-│   ├── style.css         Design tokens, typography, base reset
-│   └── responsive.css    Breakpoint foundation
+│   ├── style.css
+│   ├── responsive.css
+│   ├── nav.css
+│   ├── hero.css
+│   ├── problem.css
+│   ├── what-we-teach.css
+│   ├── mvp-journey.css
+│   ├── why-ai.css
+│   ├── who-its-for.css
+│   ├── about.css
+│   ├── cohort.css
+│   ├── faq.css
+│   ├── final-cta.css
+│   ├── footer.css
+│   └── scroll-reveal.css
 ├── js/
-│   └── app.js            Minimal JS entry point
+│   ├── app.js
+│   ├── cohort-form.js
+│   └── firebase-config.example.js
 ├── assets/
-│   ├── images/           Future images
-│   ├── icons/            Future icons
-│   └── logo/             logo.jpeg (provided logo — do not modify)
-├── favicon/              Favicon files go here
-├── netlify.toml          Static site deploy config
-└── README.md             This file
+├── favicon/
+└── ...
 ```
 
-# Local Development
+## Future Firebase cohort form
 
-This is a static site — no build step or dependencies required.
+The current cohort CTA remains **Coming Soon**. Firebase is intentionally scaffolded but not connected to a live project.
 
-1. Open `index.html` directly in a browser, **or**
-2. Serve the folder locally, e.g.:
-   ```
-   npx serve .
-   ```
-   or
-   ```
-   python3 -m http.server
-   ```
-3. Visit the local address shown in your terminal.
+### When registration opens
 
-# Design System
+1. Create a Firebase project.
+2. Register a web app.
+3. Copy `js/firebase-config.example.js` to `js/firebase-config.js`.
+4. Add the real web-app configuration.
+5. Enable only the Firebase services required by the cohort.
+6. Add a Firestore collection such as `cohortLeads`.
+7. Add strict Firestore Security Rules.
+8. Build and validate the registration form.
+9. Test submissions before switching the public CTA from "Coming Soon" to the live form.
 
-Color, typography, spacing, radius, shadow, transition, and layout
-tokens are defined as CSS custom properties in `css/style.css`. Both
-light theme (default) and dark theme (`[data-theme="dark"]`) tokens
-exist, but theme-switching logic (toggle, persistence, system
-preference detection) is not implemented yet.
+**Important:** frontend Firebase config is not a place for private Admin SDK credentials or service-account keys.
 
-Typefaces: **Space Grotesk** (display/headings), **Inter** (body),
-**IBM Plex Mono** (captions/data — a nod to the platform's coding
-and AI focus).
+## SEO
 
-# SEO
+The production domain has been applied to:
 
-SEO setup is included in Deliverable 17:
-- Page title and meta description
-- Canonical URL placeholder
-- Open Graph and Twitter/X metadata
-- JSON-LD structured data
-- Favicon set
+- canonical URL
+- Open Graph URL
+- Open Graph image
+- Twitter/X image
+- JSON-LD organization URL
+- JSON-LD website URL
 - `robots.txt`
 - `sitemap.xml`
-- Google Search Console setup guide
 
-**Important:** replace `https://your-domain.example/` with the real production domain before launch.
+Submit the sitemap in Google Search Console after the site is live:
 
-# Future Development
+`https://bwai0.netlify.app/sitemap.xml`
 
-Remaining work: Firebase scaffolding, final QA, accessibility polish, and the complete production README/package.
+## Final QA checklist
+
+Before launch, verify:
+
+- [ ] Homepage loads on desktop and mobile.
+- [ ] All navigation links scroll to an existing section.
+- [ ] Mobile navigation opens/closes correctly.
+- [ ] Escape closes the mobile menu.
+- [ ] Theme toggle works and persists.
+- [ ] Cohort modal opens, closes, and traps focus.
+- [ ] FAQ buttons expand/collapse correctly.
+- [ ] Footer year updates automatically.
+- [ ] Scroll-reveal animations respect reduced-motion settings.
+- [ ] No missing CSS, JS, image, or favicon assets.
+- [ ] Canonical/SEO URLs point to `bwai0.netlify.app`.
+- [ ] `robots.txt` points to the production sitemap.
+- [ ] Sitemap uses the production URL.
+- [ ] No real Firebase secrets are committed.
+- [ ] Final deployed site has no browser-console errors.
+
+## Local testing
+
+Because this is a static site, no package installation is required.
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open:
+
+`http://localhost:8000/`
+
+from inside `buildmvps/`.
+
+## Status
+
+**D18 — Finalization**
+
+- README/documentation: complete
+- Firebase future scaffolding for cohort form: complete
+- Production domain configuration: complete
+- Final static QA: complete
+- Cleanup: complete
+- Production ZIP: ready

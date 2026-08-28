@@ -47,6 +47,12 @@
   color: var(--color-primary);
 }
 
+.what-we-teach__intro {
+  max-width: 38rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
 /* -----------------------------------------------------------------
    Curriculum cards grid
    ----------------------------------------------------------------- */
@@ -141,4 +147,15 @@
   .what-we-teach__grid {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Simple curriculum glyphs keep the section lightweight and dependency-free. */
+.teach-card__code {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-semibold);
 }
