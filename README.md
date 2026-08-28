@@ -40,6 +40,12 @@ The production site is configured for:
 
 `https://bwai0.netlify.app/`
 
+Official contact: `taiwoalex35@gmail.com`
+
+Official LinkedIn: `https://www.linkedin.com/company/bwai0`
+
+Official WhatsApp community: `https://chat.whatsapp.com/F6APsnzcc9k1GJrDCCIzyk`
+
 The deploy/publish directory is:
 
 `buildmvps/`
@@ -106,8 +112,8 @@ The production domain has been applied to:
 
 - canonical URL
 - Open Graph URL
-- Open Graph image
-- Twitter/X image
+- Open Graph image (`assets/images/og-image.png`)
+- Twitter/X image (`assets/images/og-image.png`)
 - JSON-LD organization URL
 - JSON-LD website URL
 - `robots.txt`
@@ -116,6 +122,13 @@ The production domain has been applied to:
 Submit the sitemap in Google Search Console after the site is live:
 
 `https://bwai0.netlify.app/sitemap.xml`
+
+## Official links
+
+- Website: `https://bwai0.netlify.app/`
+- Email: `taiwoalex35@gmail.com`
+- LinkedIn: `https://www.linkedin.com/company/bwai0`
+- WhatsApp group: `https://chat.whatsapp.com/F6APsnzcc9k1GJrDCCIzyk`
 
 ## Final QA checklist
 
