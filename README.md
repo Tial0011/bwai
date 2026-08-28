@@ -174,3 +174,13 @@ from inside `buildmvps/`.
 - Final static QA: complete
 - Cleanup: complete
 - Production ZIP: ready
+
+
+### Sitemap troubleshooting
+
+The project includes a `_headers` file that explicitly serves `sitemap.xml` as `application/xml` and `robots.txt` as `text/plain`. After deploying changes, verify these exact URLs:
+
+- `https://bwai0.netlify.app/sitemap.xml`
+- `https://bwai0.netlify.app/robots.txt`
+
+If Google Search Console previously reported "Couldn't fetch", resubmit the sitemap after the new deployment is live.
