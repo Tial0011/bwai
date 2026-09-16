@@ -5,8 +5,8 @@
    This file intentionally does almost nothing yet. It exists to:
      1. Prove the script loads and runs without console errors.
      2. Provide a single, clean entry point for future features
-        (theme toggle, mobile nav, FAQ, modal, scroll animations,
-        smooth scrolling, etc.) to be added in later deliverables.
+        (theme toggle, mobile nav, FAQ, scroll animations,
+        smooth scrolling, etc.) used across the site.
 
    Do not add feature logic here yet — see README.md for the
    current stage and what belongs to future deliverables.
@@ -22,7 +22,6 @@
 
     initTheme();
     initNav();
-    initCohortModal();
     initFAQ();
     initFooterYear();
     initScrollReveal();
@@ -173,123 +172,6 @@
       if (event.key === 'Escape' && navLinks.classList.contains('is-open')) {
         closeMenu();
         toggle.focus();
-      }
-    });
-  }
-
-  /* -----------------------------------------------------------------
-     Cohort notify modal — Deliverable 10
-     Opens/closes the "Get Notified" confirmation modal. Closes on
-     Escape, on backdrop click, and on the close button. Traps Tab
-     focus within the dialog while open and returns focus to the
-     trigger button on close.
-
-     Any element with the `.js-cohort-trigger` class opens this same
-     modal — this is what the Final CTA (Deliverable 12) reuses to
-     show the Cohort section's "Coming Soon" state instead of
-     introducing a second modal/handler.
-     ----------------------------------------------------------------- */
-  function initCohortModal() {
-    var triggers = document.querySelectorAll('.js-cohort-trigger');
-    var modal = document.getElementById('cohort-modal');
-
-    if (!triggers.length || !modal) {
-      return;
-    }
-
-    var closeBtn = document.getElementById('cohort-modal-close');
-    var lastFocused = null;
-    var hideTimeout = null;
-    var activeTrigger = null;
-
-    function getFocusable() {
-      return modal.querySelectorAll(
-        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      );
-    }
-
-    function onKeydown(event) {
-      if (event.key === 'Escape') {
-        closeModal();
-        return;
-      }
-
-      if (event.key === 'Tab') {
-        var focusable = getFocusable();
-        if (!focusable.length) {
-          return;
-        }
-        var first = focusable[0];
-        var last = focusable[focusable.length - 1];
-
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault();
-          last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          first.focus();
-        }
-      }
-    }
-
-    function openModal(trigger) {
-      activeTrigger = trigger;
-      lastFocused = document.activeElement;
-
-      if (hideTimeout) {
-        window.clearTimeout(hideTimeout);
-        hideTimeout = null;
-      }
-
-      modal.hidden = false;
-      document.body.classList.add('has-modal-open');
-      trigger.setAttribute('aria-expanded', 'true');
-
-      // Add the open class on the next frame so the hidden -> visible
-      // transition actually runs instead of jumping straight in.
-      window.requestAnimationFrame(function () {
-        modal.classList.add('is-open');
-      });
-
-      if (closeBtn) {
-        closeBtn.focus();
-      }
-
-      document.addEventListener('keydown', onKeydown);
-    }
-
-    function closeModal() {
-      modal.classList.remove('is-open');
-      document.body.classList.remove('has-modal-open');
-      if (activeTrigger) {
-        activeTrigger.setAttribute('aria-expanded', 'false');
-      }
-      document.removeEventListener('keydown', onKeydown);
-
-      hideTimeout = window.setTimeout(function () {
-        modal.hidden = true;
-      }, 250);
-
-      if (lastFocused && typeof lastFocused.focus === 'function') {
-        lastFocused.focus();
-      } else if (activeTrigger) {
-        activeTrigger.focus();
-      }
-    }
-
-    triggers.forEach(function (trigger) {
-      trigger.addEventListener('click', function () {
-        openModal(trigger);
-      });
-    });
-
-    if (closeBtn) {
-      closeBtn.addEventListener('click', closeModal);
-    }
-
-    modal.addEventListener('click', function (event) {
-      if (event.target && event.target.hasAttribute('data-modal-close')) {
-        closeModal();
       }
     });
   }

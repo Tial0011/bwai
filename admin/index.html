@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>BWAI Admin Dashboard</title>
+  <link rel="icon" href="../favicon/favicon.ico">
+  <link rel="stylesheet" href="../css/admin.css">
+</head>
+<body>
+  <div class="admin-shell">
+    <section class="login-card" id="login-view">
+      <div class="brand-mark">BWAI</div>
+      <p class="eyebrow">Private dashboard</p>
+      <h1>Admin login</h1>
+      <p>Private access. Sign in with your approved BWAI admin email and password.</p>
+      <form id="login-form">
+        <label>Email<input id="login-email" type="email" autocomplete="email" required placeholder="admin@example.com"></label>
+        <label>Password<input id="login-password" type="password" autocomplete="current-password" required placeholder="••••••••"></label>
+        <button type="submit" id="login-btn">Sign in</button>
+        <div class="login-status" id="login-status" role="alert"></div>
+      </form>
+    </section>
+
+    <div id="dashboard-view" hidden>
+      <header class="admin-header">
+        <div><p class="eyebrow">BWAI Cohort 1</p><h1>Admin Dashboard</h1></div>
+        <div class="header-actions"><span id="admin-email"></span><button class="ghost-btn" id="logout-btn">Log out</button></div>
+      </header>
+
+      <main>
+        <section class="kpi-grid" aria-label="Key performance indicators">
+          <article class="kpi"><span>Total registrations</span><strong id="kpi-total">0</strong></article>
+          <article class="kpi"><span>Paid / confirmed</span><strong id="kpi-paid">0</strong></article>
+          <article class="kpi"><span>Payment pending</span><strong id="kpi-pending">0</strong></article>
+          <article class="kpi"><span>Not contacted</span><strong id="kpi-new">0</strong></article>
+          <article class="kpi"><span>Confirmed revenue</span><strong id="kpi-revenue">₦0</strong></article>
+          <article class="kpi"><span>Email opt-ins</span><strong id="kpi-optins">0</strong></article>
+        </section>
+
+        <section class="panel">
+          <div class="panel-heading">
+            <div><p class="eyebrow">Manage leads</p><h2>Registrations</h2></div>
+            <div class="toolbar"><input id="search-input" type="search" placeholder="Search name, email or phone"><select id="status-filter"><option value="all">All statuses</option><option value="new">New</option><option value="contacted">Contacted</option><option value="payment-pending">Payment pending</option><option value="paid">Paid</option><option value="rejected">Rejected</option></select><button class="ghost-btn" id="export-optins-btn">Email list</button><button class="ghost-btn" id="export-btn">Export CSV</button></div>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Registrant</th><th>Experience</th><th>Source</th><th>Status</th><th>Registered</th><th>Action</th></tr></thead>
+              <tbody id="registrations-body"><tr><td colspan="6" class="empty">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="drawer" id="drawer" hidden>
+    <div class="drawer-backdrop" data-close-drawer></div>
+    <aside class="drawer-panel" aria-label="Registration details">
+      <button class="drawer-close" id="drawer-close" aria-label="Close">×</button>
+      <div id="drawer-content"></div>
+    </aside>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

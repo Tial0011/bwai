@@ -170,7 +170,7 @@
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#cohort" class="nav-link">Cohort</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
-          <li class="nav-links__cta"><a href="#cohort" class="btn-nav-cta">Join the Next Cohort</a></li>
+          <li class="nav-links__cta"><a href="#cohort" class="btn-nav-cta">Register for Cohort 1</a></li>
         </ul>
       </nav>
     </div>
@@ -198,7 +198,7 @@
 
           <div class="hero__actions">
             <a href="#what-we-teach" class="btn btn-primary">Explore What We Teach</a>
-            <a href="#cohort" class="btn btn-secondary"><span class="btn-secondary__dot" aria-hidden="true"></span>Next Cohort — Coming Soon</a>
+            <a href="#cohort" class="btn btn-secondary"><span class="btn-secondary__dot" aria-hidden="true"></span>Register for Cohort 1</a>
           </div>
         </div>
 
@@ -754,54 +754,81 @@
       </div>
     </section>
 
-    <!--
-      COHORT — Deliverable 10
-      Coming-soon panel with a status badge and a "Get Notified" CTA
-      that opens a lightweight confirmation modal. Built with
-      existing design tokens only.
-    -->
-
-    <section class="cohort" id="cohort" aria-label="Cohort">
+    <!-- COHORT REGISTRATION -->
+    <section class="cohort" id="cohort" aria-label="Cohort registration">
       <div class="container cohort__container">
-        <div class="cohort__panel">
+        <div class="cohort__panel cohort__panel--registration">
           <span class="cohort__status">
             <span class="cohort__status-dot" aria-hidden="true"></span>
-            Coming Soon
+            Cohort 1 Registration Open
           </span>
-          <h2 class="cohort__headline text-h2">The next cohort is coming.</h2>
-          <p class="cohort__text text-body-lg">We're building a practical learning experience designed to take you from idea to your first AI-assisted MVP.</p>
-          <button
-            type="button"
-            class="btn btn-primary cohort__cta js-cohort-trigger"
-            id="cohort-cta"
-            aria-haspopup="dialog"
-            aria-controls="cohort-modal"
-            aria-expanded="false"
-          >Get Notified</button>
+          <h2 class="cohort__headline text-h2">Build your first MVP with AI.</h2>
+          <p class="cohort__text text-body-lg">Register your interest for BWAI Cohort 1. After you register, we'll contact you directly with the next steps and payment details.</p>
+
+          <form class="cohort-form" id="cohort-form" novalidate>
+            <div class="form-grid">
+              <label class="form-field">
+                <span>Full name <b>*</b></span>
+                <input id="reg-name" name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Your full name">
+              </label>
+              <label class="form-field">
+                <span>Email address <b>*</b></span>
+                <input id="reg-email" name="email" type="email" autocomplete="email" required maxlength="160" placeholder="you@example.com">
+              </label>
+              <label class="form-field">
+                <span>WhatsApp number <b>*</b></span>
+                <input id="reg-phone" name="phone" type="tel" autocomplete="tel" required maxlength="30" placeholder="0800 000 0000">
+              </label>
+              <label class="form-field">
+                <span>Experience level <b>*</b></span>
+                <select id="reg-experience" name="experienceLevel" required>
+                  <option value="" selected disabled>Select your level</option>
+                  <option value="beginner">Complete beginner</option>
+                  <option value="some-experience">Some experience</option>
+                  <option value="intermediate">Intermediate</option>
+                </select>
+              </label>
+              <label class="form-field form-field--full">
+                <span>What do you want to learn or build? <b>*</b></span>
+                <textarea id="reg-goal" name="goal" rows="4" maxlength="500" required placeholder="Tell us briefly about the idea, skill or project you want to work on."></textarea>
+              </label>
+              <label class="form-field form-field--full">
+                <span>How did you hear about BWAI?</span>
+                <select id="reg-source" name="source">
+                  <option value="">Select one</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                  <option value="LinkedIn">LinkedIn</option>
+                  <option value="TikTok">TikTok</option>
+                  <option value="Friend / referral">Friend / referral</option>
+                  <option value="Search engine">Search engine</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="form-check">
+              <input id="reg-consent" name="marketingConsent" type="checkbox">
+              <span>I want to receive BWAI updates, learning resources and future cohort announcements by email.</span>
+            </label>
+
+            <div class="form-honeypot" aria-hidden="true">
+              <label>Leave this field empty<input id="reg-website" name="website" type="text" tabindex="-1" autocomplete="off"></label>
+            </div>
+
+            <button type="submit" class="btn btn-primary cohort__submit" id="cohort-submit">Register for Cohort 1</button>
+            <p class="form-note">No payment is required on this form. We'll contact you directly after registration with the next steps.</p>
+            <div class="form-status" id="cohort-form-status" role="status" aria-live="polite"></div>
+          </form>
+
+          <div class="cohort-success" id="cohort-success" hidden>
+            <div class="success-icon" aria-hidden="true">✓</div>
+            <h3 class="text-h3">Registration received 🎉</h3>
+            <p class="text-body">We've received your details. We'll contact you via WhatsApp with the next steps, including payment information.</p>
+            <a class="btn btn-secondary" href="#hero">Back to BWAI</a>
+          </div>
         </div>
       </div>
     </section>
-
-    <!-- Notify modal — triggered by the Cohort section's CTA above -->
-    <div class="modal" id="cohort-modal" role="presentation" hidden>
-      <div class="modal__backdrop" data-modal-close></div>
-      <div
-        class="modal__dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="cohort-modal-title"
-        aria-describedby="cohort-modal-text"
-      >
-        <button type="button" class="modal__close" id="cohort-modal-close" aria-label="Close">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M18 6 6 18"></path>
-            <path d="m6 6 12 12"></path>
-          </svg>
-        </button>
-        <h3 id="cohort-modal-title" class="modal__title text-h3">Registration isn't open yet.</h3>
-        <p id="cohort-modal-text" class="modal__text text-body">The next cohort will be announced soon.</p>
-      </div>
-    </div>
 
     <!--
       FAQ — Deliverable 11
@@ -961,7 +988,7 @@
             </h3>
             <div class="faq__answer" id="faq-a6" role="region" aria-labelledby="faq-q6" hidden>
               <div class="faq__answer-inner">
-                <p class="faq__answer-text text-body">The next cohort hasn't been scheduled yet. Use the "Get Notified" button above to hear about it first.</p>
+                <p class="faq__answer-text text-body">The next cohort hasn't been scheduled yet. Register for Cohort 1 above and we'll contact you with the next steps.</p>
               </div>
             </div>
           </div>
@@ -995,26 +1022,12 @@
       </div>
     </section>
 
-    <!--
-      FINAL CTA — Deliverable 12
-      Strong closing section, visually distinct (deep navy) from the
-      light content sections above it. Reuses the Cohort section's
-      "Coming Soon" modal via the shared .js-cohort-trigger hook in
-      app.js — no new modal or duplicate functionality is introduced
-      here. Built with existing design tokens only.
-    -->
+    <!-- FINAL CTA -->
     <section class="final-cta" id="final-cta" aria-label="Get Started">
       <div class="container final-cta__container">
         <h2 class="final-cta__headline text-h2">Your idea deserves a first version.</h2>
         <p class="final-cta__text text-body-lg">Learn how to use AI to turn your idea into something real.</p>
-        <button
-          type="button"
-          class="btn btn-primary final-cta__cta js-cohort-trigger"
-          id="final-cta-cta"
-          aria-haspopup="dialog"
-          aria-controls="cohort-modal"
-          aria-expanded="false"
-        >Join the Next Cohort</button>
+        <a href="#cohort" class="btn btn-primary final-cta__cta" id="final-cta-cta">Register for Cohort 1</a>
       </div>
     </section>
 
@@ -1076,6 +1089,7 @@
             </li>
           </ul>
 
+          <a href="/admin/" class="footer-admin-link">Admin login</a>
           <a href="mailto:taiwoalex35@gmail.com" class="footer-email" aria-label="Email BWAI at taiwoalex35@gmail.com">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <rect x="2.5" y="4.5" width="19" height="15" rx="2"></rect>
@@ -1095,5 +1109,6 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script type="module" src="js/cohort-form.js"></script>
 </body>
 </html>

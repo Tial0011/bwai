@@ -1,0 +1,41 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() {
+      return signedIn() && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    match /registrations/{registrationId} {
+      allow create: if request.resource.data.keys().hasOnly([
+        'cohort','name','email','phone','experienceLevel','goal','source','marketingConsent',
+        'paymentStatus','registrationStatus','utmSource','utmMedium','utmCampaign','referrer',
+        'createdAt','updatedAt'
+      ])
+      && request.resource.data.cohort == 'cohort-1'
+      && request.resource.data.name is string
+      && request.resource.data.name.size() >= 2
+      && request.resource.data.name.size() <= 100
+      && request.resource.data.email is string
+      && request.resource.data.email.size() <= 160
+      && request.resource.data.email.matches('^[^@ ]+@[^@ ]+\\.[^@ ]+$')
+      && request.resource.data.phone is string
+      && request.resource.data.phone.size() >= 7
+      && request.resource.data.phone.size() <= 30
+      && request.resource.data.experienceLevel in ['beginner','some-experience','intermediate']
+      && request.resource.data.goal is string
+      && request.resource.data.goal.size() >= 3
+      && request.resource.data.goal.size() <= 500
+      && request.resource.data.marketingConsent is bool
+      && request.resource.data.paymentStatus == 'not-contacted'
+      && request.resource.data.registrationStatus == 'new';
+
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /admins/{userId} {
+      allow read: if signedIn() && (request.auth.uid == userId || isAdmin());
+      allow write: if false;
+    }
+  }
+}

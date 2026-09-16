@@ -198,3 +198,116 @@ body.has-modal-open {
     padding: var(--space-2xl);
   }
 }
+
+/* -----------------------------------------------------------------
+   Registration form
+   ----------------------------------------------------------------- */
+.cohort__panel--registration {
+  max-width: 54rem;
+  align-items: stretch;
+  text-align: left;
+}
+
+.cohort__panel--registration .cohort__status,
+.cohort__panel--registration .cohort__headline,
+.cohort__panel--registration .cohort__text {
+  align-self: center;
+  text-align: center;
+}
+
+.cohort-form {
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  color: var(--color-primary);
+  font-size: 0.92rem;
+  font-weight: var(--font-weight-medium);
+}
+
+.form-field b { color: var(--color-accent); }
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 0.82rem 0.9rem;
+  font: inherit;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast);
+}
+
+.form-field textarea { resize: vertical; min-height: 7rem; }
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: var(--color-text-muted); opacity: 0.8; }
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+  color: var(--color-text-muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+.form-check input { margin-top: 0.2rem; accent-color: var(--color-accent); }
+
+.form-honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.form-note { margin: var(--space-sm) 0 0; color: var(--color-text-muted); font-size: 0.82rem; text-align: center; }
+.form-status { min-height: 1.3rem; margin-top: var(--space-sm); text-align: center; font-size: 0.9rem; }
+.form-status.is-error { color: #b42318; }
+.cohort__submit { width: 100%; margin-top: var(--space-md); }
+.cohort__submit:disabled { opacity: 0.65; cursor: wait; }
+
+.cohort-success {
+  width: 100%;
+  padding: var(--space-xl);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-alt);
+  text-align: center;
+}
+.cohort-success[hidden] { display: none; }
+.success-icon {
+  display: grid;
+  place-items: center;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin: 0 auto var(--space-sm);
+  border-radius: 50%;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.cohort-success h3 { color: var(--color-primary); }
+.cohort-success p { max-width: 38rem; margin-inline: auto; color: var(--color-text-muted); }
+.cohort-success__email { margin-bottom: var(--space-lg) !important; }
+
+@media (min-width: 700px) {
+  .form-grid { grid-template-columns: 1fr 1fr; }
+  .form-field--full { grid-column: 1 / -1; }
+  .cohort__submit { width: auto; min-width: 16rem; display: block; margin-inline: auto; }
+}
